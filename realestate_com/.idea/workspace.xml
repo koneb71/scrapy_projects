@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6bf30233-29f2-4242-82b7-0e51cc421bcd" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/realestate_com/items.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="46" selection-end-column="21" />
+              <folding>
+                <element signature="e#151#160#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/realestate_com/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/realestate_com/spiders/test_realestate.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
+              <folding>
+                <element signature="e#24#65#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/realestate_com/spiders/realestate.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="87">
+              <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+              <folding>
+                <element signature="e#24#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/realestate_com/spiders/samples/links.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="29670">
+              <caret line="1978" column="14" selection-start-line="1978" selection-start-column="14" selection-end-line="1978" selection-end-column="14" />
+              <folding>
+                <element signature="e#37575#37581#1" expanded="true" />
+                <element signature="e#39693#39699#0" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#136677#136683#0" expanded="true" />
+                <element signature="n#style#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#141093#141098#0" expanded="true" />
+                <element signature="e#141110#141115#0" expanded="true" />
+                <element signature="e#142003#142008#0" expanded="true" />
+                <element signature="e#142555#142560#0" expanded="true" />
+                <element signature="e#142596#142601#0" expanded="true" />
+                <element signature="e#142619#142624#0" expanded="true" />
+                <element signature="e#142646#142651#0" expanded="true" />
+                <element signature="e#142671#142676#0" expanded="true" />
+                <element signature="e#142709#142714#0" expanded="true" />
+                <element signature="e#142737#142742#0" expanded="true" />
+                <element signature="e#142782#142787#0" expanded="true" />
+                <element signature="e#142841#142846#0" expanded="true" />
+                <element signature="e#142885#142890#0" expanded="true" />
+                <element signature="e#143175#143180#0" expanded="true" />
+                <element signature="e#143216#143221#0" expanded="true" />
+                <element signature="e#143239#143244#0" expanded="true" />
+                <element signature="e#143266#143271#0" expanded="true" />
+                <element signature="e#143291#143296#0" expanded="true" />
+                <element signature="e#143329#143334#0" expanded="true" />
+                <element signature="e#143357#143362#0" expanded="true" />
+                <element signature="e#143402#143407#0" expanded="true" />
+                <element signature="e#143461#143466#0" expanded="true" />
+                <element signature="e#143505#143510#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/../reint/reint/items.py" />
+        <option value="$PROJECT_DIR$/realestate_com/items.py" />
+        <option value="$PROJECT_DIR$/realestate_com/spiders/samples/links.htm" />
+        <option value="$PROJECT_DIR$/realestate_com/settings.py" />
+        <option value="$PROJECT_DIR$/realestate_com/spiders/test_realestate.py" />
+        <option value="$PROJECT_DIR$/realestate_com/spiders/realestate.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="realestate_com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="realestate_com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="realestate_com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="realestate_com" type="462c0819:PsiDirectoryNode" />
+              <item name="realestate_com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="realestate_com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="realestate_com" type="462c0819:PsiDirectoryNode" />
+              <item name="realestate_com" type="462c0819:PsiDirectoryNode" />
+              <item name="spiders" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="realestate_com" type="b2602c69:ProjectViewProjectNode" />
+              <item name="realestate_com" type="462c0819:PsiDirectoryNode" />
+              <item name="realestate_com" type="462c0819:PsiDirectoryNode" />
+              <item name="spiders" type="462c0819:PsiDirectoryNode" />
+              <item name="samples" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings sdk-home="/usr/local/bin/python3.7">
+        <option name="mySdkHome" value="/usr/local/bin/python3.7" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6bf30233-29f2-4242-82b7-0e51cc421bcd" name="Default Changelist" comment="" />
+      <created>1536735820417</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1536735820417</updated>
+      <workItem from="1562004545052" duration="3195000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3195000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15808298" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.58433735" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="right" id="R Graphics" />
+      <window_info anchor="right" id="R Packages" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/realestate_com/spiders/samples/agency.html" />
+    <entry file="file://$PROJECT_DIR$/../reint/reint/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="42" column="4" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="50" />
+          <folding>
+            <element signature="e#151#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../reint/reint/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" selection-start-line="16" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../reint/reint/spiders/reint_com.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../reint/reint/spiders/test_reint_com.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="29" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../allhomes/allhomes/spiders/spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="7" selection-end-column="65" />
+          <folding>
+            <element signature="e#24#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../wordbean/scraping_tools/scraping_tools/scrapy/templates/settings.py" />
+    <entry file="file://$PROJECT_DIR$/realestate_com/spiders/samples/links.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29670">
+          <caret line="1978" column="14" selection-start-line="1978" selection-start-column="14" selection-end-line="1978" selection-end-column="14" />
+          <folding>
+            <element signature="e#37575#37581#1" expanded="true" />
+            <element signature="e#39693#39699#0" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#136677#136683#0" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#141093#141098#0" expanded="true" />
+            <element signature="e#141110#141115#0" expanded="true" />
+            <element signature="e#142003#142008#0" expanded="true" />
+            <element signature="e#142555#142560#0" expanded="true" />
+            <element signature="e#142596#142601#0" expanded="true" />
+            <element signature="e#142619#142624#0" expanded="true" />
+            <element signature="e#142646#142651#0" expanded="true" />
+            <element signature="e#142671#142676#0" expanded="true" />
+            <element signature="e#142709#142714#0" expanded="true" />
+            <element signature="e#142737#142742#0" expanded="true" />
+            <element signature="e#142782#142787#0" expanded="true" />
+            <element signature="e#142841#142846#0" expanded="true" />
+            <element signature="e#142885#142890#0" expanded="true" />
+            <element signature="e#143175#143180#0" expanded="true" />
+            <element signature="e#143216#143221#0" expanded="true" />
+            <element signature="e#143239#143244#0" expanded="true" />
+            <element signature="e#143266#143271#0" expanded="true" />
+            <element signature="e#143291#143296#0" expanded="true" />
+            <element signature="e#143329#143334#0" expanded="true" />
+            <element signature="e#143357#143362#0" expanded="true" />
+            <element signature="e#143402#143407#0" expanded="true" />
+            <element signature="e#143461#143466#0" expanded="true" />
+            <element signature="e#143505#143510#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/au_postcodes.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/realestate_com/spiders/test_realestate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+          <folding>
+            <element signature="e#24#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/realestate_com/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="46" selection-end-column="21" />
+          <folding>
+            <element signature="e#151#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/realestate.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/realestate_com/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/realestate_com/spiders/realestate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+          <folding>
+            <element signature="e#24#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
