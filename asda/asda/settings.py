@@ -31,3 +31,13 @@ DOWNLOADER_MIDDLEWARES = {
     # 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware' : None,
     'asda.middlewares.AsdaDownloaderMiddleware': 543,
 }
+
+ITEM_PIPELINES = {
+    'asda.mysql_pipeline.MySQLStorePipeline': 300,
+}
+
+MYSQL_HOST = 'testdb.cuaruwiziqum.eu-west-2.rds.amazonaws.com'
+MYSQL_PORT = '3306'
+MYSQL_DB = 'testdb'
+MYSQL_USERNAME = 'test_asda'
+MYSQL_PASSWORD = 'Testasda123'

@@ -5,8 +5,11 @@ import scrapy
 from scrapy import Request
 from scrapy.loader import ItemLoader
 from scrapy.spiders import CrawlSpider
+import MySQLdb
+from MySQLdb.cursors import DictCursor
 
 from asda.items import AsdaItem
+from asda.settings import MYSQL_HOST, MYSQL_USERNAME, MYSQL_PASSWORD, MYSQL_DB
 
 
 class AsdaComSpider(CrawlSpider):
@@ -18,10 +21,27 @@ class AsdaComSpider(CrawlSpider):
         'https://groceries.asda.com/special-offers/all-offers/by-category/111556'
     ]
 
+    def __init__(self, store='Asda', url=None, *args, **kwargs):
+        super(AsdaComSpider, self).__init__(*args, **kwargs)
+        self.db = MySQLdb.connect(host=MYSQL_HOST,
+                             user=MYSQL_USERNAME,
+                             passwd=MYSQL_PASSWORD,
+                             db=MYSQL_DB, cursorclass=DictCursor)
+        self.store = store
+        self.url = url
+
     def start_requests(self):
+        if self.url:
+            return Request(self.url, callback=self.parse_pages)
+
         requests = []
-        for site in self.sites:
-            requests.append(Request(site, callback=self.parse_pages))
+        c = self.db.cursor()
+        c.execute("""Select url from w_scrape_urls where store = %s""", (self.store,))
+        sites = c.fetchall()
+        for site in sites:
+            requests.append(Request(site['url'], callback=self.parse_pages))
+
+        c.close()
         return requests
 
     def parse_pages(self, response):
