@@ -36,8 +36,8 @@ ITEM_PIPELINES = {
     'asda.mysql_pipeline.MySQLStorePipeline': 300,
 }
 
-MYSQL_HOST = 'testdb.cuaruwiziqum.eu-west-2.rds.amazonaws.com'
+MYSQL_HOST = 'awsftfba1.cuaruwiziqum.eu-west-2.rds.amazonaws.com'
 MYSQL_PORT = '3306'
-MYSQL_DB = 'testdb'
-MYSQL_USERNAME = 'test_asda'
-MYSQL_PASSWORD = 'Testasda123'
+MYSQL_DB = 'aws_ftfba1'
+MYSQL_USERNAME = 'scrapinghub'
+MYSQL_PASSWORD = '{nPb!7g3c_V)WNwM'

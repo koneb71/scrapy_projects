@@ -49,5 +49,7 @@ class GamecollectionComItem(scrapy.Item):
     Image = DEFAULT
     Price = DEFAULT
     Stock = DEFAULT
+    Barcode = DEFAULT
+    Slow_scrape = DEFAULT
     New_or_old = DEFAULT
     Data_Large = DEFAULT

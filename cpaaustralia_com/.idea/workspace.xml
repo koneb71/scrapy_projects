@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62206ba9-a960-4f7d-bff9-c9e4533657f8" name="Default Changelist" comment="" />
+    <list default="true" id="62206ba9-a960-4f7d-bff9-c9e4533657f8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpaaustralia-3501-10000.csv" beforeDir="false" afterPath="$PROJECT_DIR$/cpaaustralia-3501-10000.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpaaustralia_com/spiders/cpaaustralia.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpaaustralia_com/spiders/cpaaustralia.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +19,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/cpaaustralia_com/spiders/cpaaustralia.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-333">
-                  <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+                <state relative-caret-position="300">
+                  <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
                   <folding>
                     <element signature="e#24#35#0" expanded="true" />
                   </folding>
@@ -25,10 +29,22 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/merge_csv.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
+                  <folding>
+                    <element signature="e#0#11#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/cpaaustralia_com/items.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-63">
-                  <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+                <state relative-caret-position="417">
+                  <caret line="55" selection-start-line="55" selection-end-line="55" />
                   <folding>
                     <element signature="e#151#160#0" expanded="true" />
                   </folding>
@@ -52,8 +68,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/cpaaustralia_com/items.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="810">
-                  <caret line="54" column="11" selection-start-line="54" selection-start-column="11" selection-end-line="54" selection-end-column="11" />
+                <state relative-caret-position="439">
+                  <caret line="55" selection-start-line="55" selection-end-line="55" />
                   <folding>
                     <element signature="e#151#160#0" expanded="true" />
                   </folding>
@@ -64,6 +80,13 @@
         </leaf>
       </split-second>
     </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -79,17 +102,7 @@
         <option value="$PROJECT_DIR$/cpaaustralia_com/items.py" />
         <option value="$PROJECT_DIR$/cpaaustralia_com/settings.py" />
         <option value="$PROJECT_DIR$/cpaaustralia_com/spiders/cpaaustralia.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/cpaaustralia_com.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/libraries/R_User_Library.xml" />
+        <option value="$PROJECT_DIR$/merge_csv.py" />
       </list>
     </option>
   </component>
@@ -130,6 +143,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -165,12 +179,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562079790246</updated>
-      <workItem from="1562079792140" duration="15152000" />
+      <workItem from="1562079792140" duration="18499000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15152000" />
+    <option name="totallyTimeSpent" value="18499000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -219,22 +233,32 @@
     <entry file="file://$PROJECT_DIR$/cpaaustralia-1401-1600.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/cpaaustralia_com/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="e#151#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cpaaustralia_com/spiders/cpaaustralia.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-333">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        <state relative-caret-position="300">
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
           <folding>
             <element signature="e#24#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cpaaustralia_com/items.py">
+    <entry file="file://$PROJECT_DIR$/merge_csv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-63">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+        <state relative-caret-position="255">
+          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
           <folding>
-            <element signature="e#151#160#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>

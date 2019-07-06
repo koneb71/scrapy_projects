@@ -19,7 +19,7 @@ class CpaaustraliaSpider(scrapy.Spider):
         data = json.loads(pd.read_csv("au_postcodes.csv").drop_duplicates(subset=['lat', 'lon'], keep='last').to_json(orient='records'))
         requests = []
         print(len(data))
-        for code in data[3501:10000]:
+        for code in data[15001:]:
             # geolocator = Nominatim(user_agent="cpaaustralia", timeout=300)
             # location = geolocator.reverse("%s, %s" % (str(code['lat']), str(code['lon'])))
             # location = location.raw
