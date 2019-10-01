@@ -60,3 +60,4 @@ class SmythstoysItem(scrapy.Item):
     Price = DEFAULT
     Model = DEFAULT
     EAN = DEFAULT
+    Slow_scrape = DEFAULT

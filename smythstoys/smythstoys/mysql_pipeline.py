@@ -27,9 +27,9 @@ class MySQLStorePipeline(object):
                 self.cursor.executemany(
                     """ 
                     INSERT INTO xSmythsToys 
-                        (`URL`, `Name`, `Image`, `Price`, `Model`)       
+                        (`URL`, `Name`, `Image`, `Price`, `Model`, `EAN`, `Slow_scrape`)       
                     VALUES 
-                        (%s, %s, %s, %s, %s)
+                        (%s, %s, %s, %s, %s, %s, %s)
                     """, chunk)
                 self.conn.commit()
             except MySQLdb.Error as e:
@@ -43,5 +43,7 @@ class MySQLStorePipeline(object):
             item.get('Image', '').encode('utf-8'),
             item.get('Price', '').encode('utf-8'),
             item.get('Model', '').encode('utf-8'),
+            item.get('EAN', '').encode('utf-8'),
+            item.get('Slow_scrape', '').encode('utf-8'),
         )))
         return item
