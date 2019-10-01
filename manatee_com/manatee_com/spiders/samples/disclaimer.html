@@ -1,0 +1,259 @@
+<!DOCTYPE HTML>
+<html XMLNS:MPC><head runat='server'>
+	                            <title>Manatee County Property Appraiser</title>
+                                <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+                                <meta http-equiv='X-UA-Compatible' content='IE=9' />
+	                            <meta http-equiv='Keywords' content='CAMA, Assessment Administration, Tax'>
+	                            <meta http-equiv='Description' content='iasWorld'>
+	                            <meta name='Copyright' content='Tyler Technologies Inc, Akanda Solutions, LLC'> 
+                                <link rel='icon' href='https://www.manateepao.com/ManateeFLfavicon.ico' type='image/x-icon'>
+                                <link rel='shortcut icon' href='https://www.manateepao.com/ManateeFLfavicon.ico' type='image/x-icon'>
+                                <meta http-equiv='pragma' content='no-cache'>
+                            </head><link rel='stylesheet' href='https://www.manateepao.com/ManateeFL/styles/font-awesome.min.css' type='text/css'><link rel='stylesheet' href='https://www.manateepao.com/ManateeFL/styles/styles.css' type='text/css'><link rel='stylesheet' href='https://www.manateepao.com/ManateeFL/styles/custom/override-manatee.css' type='text/css'><body id='thebody' class='normalpage' ><div id='pagewrapper'><div id='divSMaint' style='display:none;border-bottom:2px solid red;width:780'><table cellpadding='0' cellspacing='0' width=780><tr id='trSMaint' class='MessageBar' style='height:21px;vertical-align:middle;'><td id='tdSMaint'>&nbsp;The System is currently unavailable due to maintenance.  Please check again later.</td><td id='tdTimer' align='right'></td><td align="right" valign="middle" onmouseout="ChangeImage('out')" onmouseover="ChangeImage('over')"><img id="CloseMsgBar" src="../images/icons/Set1/closeicon-normal.gif" height="14px" alt="Hide Bar" style="vertical-align:middle; border:solid 1px white; cursor:pointer" onclick="HideBar()"  />&nbsp;</td></tr></table></div><script type='text/javascript' language='javascript'>function HideBar() { document.getElementById('divSMaint').style.display='none';SoapInvokeService(WS_ACCESS_MANAGER, 'HideBar', null, false)}function ChangeImage(el) { var img = document.getElementById('CloseMsgBar'); if (el == 'out') img.src = img.src.replace('closeicon-mouseover.gif', 'closeicon-normal.gif');  else img.src = img.src.replace('closeicon-normal.gif', 'closeicon-mouseover.gif'); }</script><input type='hidden' id='hdDefHelp' value='0'><input type='hidden' id='hdThisFile' value='search/disclaimer.aspx'><div id='outerheader'><div id='middleheader'>
+
+<header>
+    <div id='header'>
+        <div class='sitelogocontainer'>
+            <a href="../Controls/www.manateepao.com" id="aIASWLink" target="_blank"><div class="sitelogo"></div></a>
+        </div>
+        <div class="HeaderSiteTitle"></div>
+        <div id='rightsection' class='HeaderLinks'>
+            <span id="RoleValue" class="HeaderLinks">
+                    </span><span id="lbRole"></span>
+            
+            <span id="lbHelp"><a class="Headerlinks Help" href="javascript:showHelp('')"
+                class='HeaderLinks'>
+                <img src='../images/common/icons/050.png' alt='Help' /></a> &nbsp;&nbsp; </span>
+            
+        </div>
+    </div>
+</header>
+
+<nav>
+       <div id='topmenu'><ul><li class='unsel'><a href='../forms/externallink.aspx?mode=http://www.manateepao.com/dnn' target=''><span>Home</span></a></li><li class='unsel'><a href='../search/commonsearch.aspx?mode=owner' target=''><span>Property Search</span></a></li><li class='unsel'><a href='../forms/externallink.aspx?mode=http://www.manateepao.com/dnn/contact-us' target=''><span>Contact Us</span></a></li></ul></div>
+       <div id='secondarytopmenu'><ul></ul></div>
+   </nav>
+
+<script type="text/javascript" src="../script/soap.js?140711114052"></script>
+<script type="text/javascript" src="../script/Common.js?130729042306"></script>
+<script type="text/javascript">
+
+    function HeaderClick(link) {
+        var par = window.parent;
+        if (par == window) return true;
+        var op = par.opener;
+        if (op == null) return true;
+        if (op.HeaderClick == null) return true;
+        var id = link.id;
+        var el = op.document.getElementById(id);
+        if (el == null) return true;
+        if (!confirm("This command will close the current window.\nDo you want to proceed?")) return false;
+
+        if (document.createEvent) {
+            var evt = document.createEvent('MouseEvents');
+            evt.initEvent('click', true, false);
+            el.dispatchEvent(evt);
+        } else if (typeof el.onclick == 'function') {
+            el.click();
+        }
+
+        par.close();
+        op.focus();
+        return false;
+    }
+
+    function SetMyHome(url) {
+        var DLG_SETMYHOME = "center:yes; dialogHeight:180px; dialogWidth:240px; help:no; resizable:no; status:no; title:no";
+        window.showModalDialog('../Forms/SetMyHome.aspx?url=' + url, null, DLG_SETMYHOME);
+    }
+
+
+    function ShowSimpleHelp(url) {
+        var DLG_POPUP = "scrollbar= yes, height=600, Width=800, resizable=yes, status=no, titlebar=no";
+        if (url.indexOf("?") > 0) {
+            url += "&";
+        } else {
+            url += "?";
+        }
+        window.open(url, null, DLG_POPUP);
+    }
+
+    function ViewCompleted() {
+        var url = "../Maintain/ReportSpool.aspx?simple=1&runningJobs=0&batchJobs=2";
+        window.open(url, "Reports", "status=1, toolbar=0, height=650px, width=1000px, resizable=1, scrollbars=yes");
+    }
+
+    function PopupWindow2(url) {
+        var DLG_POPUP = "dialogLeft:0; dialogTop: 0; edge: sunken; scroll: yes; center:yes; dialogHeight:750; dialogWidth:1028; help:no; resizable:yes; status:no; title:no";
+        if (url.indexOf("?") > 0) {
+            url += "&";
+        } else {
+            url += "?";
+        }
+        url += "frameset=1";
+        window.showModalDialog(url, null, DLG_POPUP);
+    }
+
+    var gLastPopup = parseInt(Math.random() * 10);
+
+    function PopupWindow(url, noToolbar, name) {
+        var win = null;
+
+        if (name == null)
+            name = "";
+        else
+            name = name.replace(' ', "");
+
+        if (win == null) {
+            if (name == null || name.length == 0) name = "popup" + (gLastPopup++ % 10);
+            var params;
+            if (noToolbar) {
+                params = "fullscreen=no, titlebar=no, location=no, menubar=no, toolbar=no, resizable=yes, scrollbars=yes, status=yes, titlebar=yes";
+            } else {
+                params = null;
+            }
+            win = window.open(url, name, params);
+        }
+        return win;
+    }
+
+    function setRole(val, form) {
+        var url = window.location.href;
+        url = url.replace("#", "");
+        var i = url.indexOf("&");
+        if (i != -1) {
+            url = url.substr(0, i);
+        }
+        var pars = SoapBuildInputParam("SelectedRole", val);
+        pars += SoapBuildInputParam("URL", url);
+        var res = SoapInvokeService(WS_PUBLIC, "AssignSelectedRole", pars);
+        if (res == -1) {
+            location.href = "../Main/Home.aspx";
+        }
+        else {
+            location.reload();
+        }
+    }
+</script>
+</div></div><div id='wrapper' class='center'><section><div id='bodyarea' >
+
+<body onload="Init();">
+    <style type="text/css">       
+        #ContentPanel1 {
+            width:800px;
+            margin:0 auto;
+        }        
+        #captcha_div {
+            width:800px;          
+            text-align:center;
+            margin:0 auto;
+        }
+        #recaptcha_area {
+            margin:0 auto;
+        }
+        div_cfg {
+            margin:0 auto;
+            overflow:auto;
+        }
+    </style>
+<form name="Form1" method="post" action="./Disclaimer.aspx?FromUrl=..%2fsearch%2fcommonsearch.aspx%3fmode%3downer" id="Form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE3NDA3NTc1NTJkZGrU4iHbZOzkj7FWNWIaP+BqFnYpUVq/GD4w9e6yyC59" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="62955B1D" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAMGOTm7LDr3QuSz4iWDNRUl+dX+Tvhkx/6GBl4Igg7+X+uk5FzTwkk6eyvlmOP7t5VnrhsuWXiQ9jEvKoG+ExQPMsrSvt3pkGEVerMSOMjUgQ==" />
+</div>
+
+<div class='contentpanel'><div id="ContentPanel1">
+	
+	
+    <div id="div_cfg">
+	    
+<center>
+<p><strong><span style="font-size: 16px; color:white; background-color: #004c8c;">Disclaimer for Property and Record Search</span></strong> </p>
+</center>
+<p>The Manatee County Property Appraiser makes every effort to produce and publish the most current and accurate information possible. The information maintained on this website should not be relied upon for any purposes except for those of the Property Appraiser and his staff. The Manatee County Property Appraiser accepts no responsibility for the inappropriate use or the misinterpretation of data. No warranties, expressed or implied, are provided for data herein. </p>
+<p>By proceeding with a property or map search you are stating that the notice has been read and that you understand and agree with its contents. The data contained on this site is intended for information purposes only! It is based on the best information available at the time of posting and is not warranted. The data may not reflect the most current records.&nbsp; </p>
+
+    </div>
+
+    <div style="text-align:center;">
+        
+<button type="submit" id="btDisagree" name="btDisagree" class="Btn BtnBlue" onclick="" title="Disagree" >Disagree</button>
+        
+<button type="submit" id="btAgree" name="btAgree" class="Btn BtnBlue" onclick="" title="Agree" >Agree</button>
+    </div> 	
+	<input name="hdURL" type="hidden" id="hdURL" value="../search/commonsearch.aspx?mode=owner" />
+	<input name="action" type="hidden" id="action" />
+
+</div></div>
+</form>
+</body>
+
+<script type="text/javascript">
+    function Init() {
+        var div = document.getElementById("captcha_div");
+        if (div) {
+            document.getElementById("btAgree").disabled = true;
+            
+            document.getElementById("btDisagree").disabled = true;
+            var cap = document.getElementById("recaptcha_response_field");
+            var tbl = document.getElementById("tblStandard");
+            if (cap != null) {
+                if (tbl != null) {
+                    tbl.disabled = true;
+                }
+                cap.onkeyup = capKeyUp;
+                cap.focus();
+            }
+
+        }
+        else {
+            document.getElementById("btAgree").disabled = false;
+            document.getElementById("btDisagree").disabled = false;
+        }
+    }
+
+    function capKeyUp(el) {
+        var cap = document.getElementById("recaptcha_response_field");
+        if (cap != null) {
+            var val = cap.value;
+            var button = document.getElementById("btAgree");
+            if (val.length > 0) {
+                if (button != null) {
+                    button.disabled = false;
+                }
+            } else if (button != null) {
+                button.disabled = true;
+            }
+        }
+    }
+
+</script>
+</div></section></div></div><footer><div id='footerarea' ><div id='footercontent' ><div id="dvFooter" style="clear:both; text-align:center;"><p style="text-align: center;">Data Copyright iasWorld Public Access&nbsp;<br />
+[<a href="http://www.manateepao.com/dnn/terms">Terms of Use</a>] [<a href="http://www.manateepao.com/dnn/Privacy" target="_blank">Privacy Statement</a>]<br />
+Site Design Copyright 2016 Tyler Technologies. All Rights Reserved. </p>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-49285134-10', 'manateepao.com');
+  ga('send', 'pageview');
+
+</script></div>
+<script>
+var tmpLate = "../images/cur_template";
+function getTmpLate(par)
+{
+	return tmpLate + par;
+}
+</script>
+
+
+</div></div></footer></body><script language=JavaScript>window.setTimeout("window.location.replace('../main/home.aspx')", 215990000);</script></html>
