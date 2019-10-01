@@ -1,0 +1,13 @@
+case_status,par_id,owner_state,name,owner_city,dob,party_type,dor_description,case_file_date,primary_address,case_type,owner_zip,dor_use_code,case_number,owner,party_name,src,tags,owner_address
+OPEN,,,,,1918,Decedent,,17/08/2018,,Probate,,,2018CP002347AX,,"SHAPIRO, GWENDOLYN F",,,
+OPEN,,,,,1940,Decedent,,20/08/2018,,Probate,,,2018CP002377AX,,"SEAVEY, GEORGE ERNEST",,,
+OPEN,,,,,1930,Decedent,,21/08/2018,,Probate,,,2018CP002385AX,,"SOSA, EVARISTO ISRAEL",,,
+OPEN,,,,,1946,Decedent,,21/08/2018,,Probate,,,2018CP002389AX,,"BOLDAZ, JEANNE B",,,
+OPEN,,,,,1928,Decedent,,21/08/2018,,Probate,,,2018CP002390AX,,"BORIS, SHIRLEY M",,,
+OPEN,,,,,1929,Decedent,,22/08/2018,,Probate,,,2018CP002400AX,,"DEWALT, WILLIAM T SR",,,
+OPEN,,,,,1930,Decedent,,28/08/2018,,Probate,,,2018CP002466AX,,"CARRICK, JULIA MARGUERITE",,,
+OPEN,,,,,1952,Decedent,,28/08/2018,,Probate,,,2018CP002470AX,,"GAGE, GARY GILBERT",,,
+OPEN,,,,,1955,Decedent,,28/08/2018,,Probate,,,2018CP002471AX,,"DAVIS, CARNELL",,,
+OPEN,,,,,1955,Decedent,,30/08/2018,,Probate,,,2018CP002488AX,,"GABLES, ROBERT M",,,
+REOPEN,,,,,1998,Decedent,,15/03/2016,,Probate,,,2016CP000675AX,,"DUSSAULT, JARED JOSEPH",,,
+REOPEN,,,,,1952,Decedent,,15/06/2016,,Probate,,,2016CP001513AX,,"CANDREVA, JOHN MICHAEL",,,

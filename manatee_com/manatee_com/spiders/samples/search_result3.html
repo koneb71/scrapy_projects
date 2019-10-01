@@ -1,0 +1,1095 @@
+<!DOCTYPE HTML>
+<html XMLNS:MPC>
+<head runat='server'>
+    <title>Manatee County Property Appraiser</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+    <meta http-equiv='X-UA-Compatible' content='IE=9'/>
+    <meta http-equiv='Keywords' content='CAMA, Assessment Administration, Tax'>
+    <meta http-equiv='Description' content='iasWorld'>
+    <meta name='Copyright' content='Tyler Technologies Inc, Akanda Solutions, LLC'>
+    <link rel='icon' href='https://www.manateepao.com/ManateeFLfavicon.ico' type='image/x-icon'>
+    <link rel='shortcut icon' href='https://www.manateepao.com/ManateeFLfavicon.ico' type='image/x-icon'>
+    <meta http-equiv='pragma' content='no-cache'>
+</head>
+<link rel='stylesheet' href='https://www.manateepao.com/ManateeFL/styles/font-awesome.min.css' type='text/css'>
+<link rel='stylesheet' href='https://www.manateepao.com/ManateeFL/styles/styles.css' type='text/css'>
+<link rel='stylesheet' href='https://www.manateepao.com/ManateeFL/styles/custom/override-manatee.css' type='text/css'>
+<body id='thebody' class='normalpage'>
+<div id='pagewrapper'>
+    <div id='divSMaint' style='display:none;border-bottom:2px solid red;width:780'>
+        <table cellpadding='0' cellspacing='0' width=780>
+            <tr id='trSMaint' class='MessageBar' style='height:21px;vertical-align:middle;'>
+                <td id='tdSMaint'>&nbsp;The System is currently unavailable due to maintenance. Please check again
+                    later.
+                </td>
+                <td id='tdTimer' align='right'></td>
+                <td align="right" valign="middle" onmouseout="ChangeImage('out')" onmouseover="ChangeImage('over')"><img
+                        id="CloseMsgBar" src="../images/icons/Set1/closeicon-normal.gif" height="14px" alt="Hide Bar"
+                        style="vertical-align:middle; border:solid 1px white; cursor:pointer" onclick="HideBar()"/>&nbsp;
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script type='text/javascript' language='javascript'>function HideBar() {
+        document.getElementById('divSMaint').style.display = 'none';
+        SoapInvokeService(WS_ACCESS_MANAGER, 'HideBar', null, false)
+    }
+
+    function ChangeImage(el) {
+        var img = document.getElementById('CloseMsgBar');
+        if (el == 'out') img.src = img.src.replace('closeicon-mouseover.gif', 'closeicon-normal.gif'); else img.src = img.src.replace('closeicon-normal.gif', 'closeicon-mouseover.gif');
+    }</script>
+    <input type='hidden' id='hdDefHelp' value='0'><input type='hidden' id='hdThisFile' value='search/commonsearch.aspx'>
+    <div id='outerheader'>
+        <div id='middleheader'>
+
+            <header>
+                <div id='header'>
+                    <div class='sitelogocontainer'>
+                        <a href="../Controls/www.manateepao.com" id="aIASWLink" target="_blank">
+                            <div class="sitelogo"></div>
+                        </a>
+                    </div>
+                    <div class="HeaderSiteTitle"></div>
+                    <div id='rightsection' class='HeaderLinks'>
+            <span id="RoleValue" class="HeaderLinks">
+                    </span><span id="lbRole"></span>
+
+                        <span id="lbHelp"><a class="Headerlinks Help" href="javascript:showHelp('')"
+                                             class='HeaderLinks'>
+                <img src='../images/common/icons/050.png' alt='Help'/></a> &nbsp;&nbsp; </span>
+
+                    </div>
+                </div>
+            </header>
+
+            <nav>
+                <div id='topmenu'>
+                    <ul>
+                        <li class='unsel'><a href='../forms/externallink.aspx?mode=http://www.manateepao.com/dnn'
+                                             target=''><span>Home</span></a></li>
+                        <li class='sel'><a href='../search/commonsearch.aspx?mode=owner'
+                                           target=''><span>Property Search</span></a></li>
+                        <li class='unsel'><a
+                                href='../forms/externallink.aspx?mode=http://www.manateepao.com/dnn/contact-us'
+                                target=''><span>Contact Us</span></a></li>
+                    </ul>
+                </div>
+                <div id='secondarytopmenu'>
+                    <ul>
+                        <li class='sel'><a href='../search/commonsearch.aspx?mode=owner'
+                                           target=''><span>Owner</span></a></li>
+                        <li class='unsel'><a href='../search/commonsearch.aspx?mode=address'
+                                             target=''><span>Address</span></a></li>
+                        <li class='unsel'><a href='../search/commonsearch.aspx?mode=parid'
+                                             target=''><span>Parcel ID</span></a></li>
+                        <li class='unsel'><a href='../search/advancedsearch.aspx?mode=advanced' target=''><span>Advanced Search</span></a>
+                        </li>
+                        <li class='unsel'><a href='../maps/mapadv.aspx' target=''><span>Map</span></a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <script type="text/javascript" src="../script/soap.js?140711114052"></script>
+            <script type="text/javascript" src="../script/Common.js?130729042306"></script>
+            <script type="text/javascript">
+
+                function HeaderClick(link) {
+                    var par = window.parent;
+                    if (par == window) return true;
+                    var op = par.opener;
+                    if (op == null) return true;
+                    if (op.HeaderClick == null) return true;
+                    var id = link.id;
+                    var el = op.document.getElementById(id);
+                    if (el == null) return true;
+                    if (!confirm("This command will close the current window.\nDo you want to proceed?")) return false;
+
+                    if (document.createEvent) {
+                        var evt = document.createEvent('MouseEvents');
+                        evt.initEvent('click', true, false);
+                        el.dispatchEvent(evt);
+                    } else if (typeof el.onclick == 'function') {
+                        el.click();
+                    }
+
+                    par.close();
+                    op.focus();
+                    return false;
+                }
+
+                function SetMyHome(url) {
+                    var DLG_SETMYHOME = "center:yes; dialogHeight:180px; dialogWidth:240px; help:no; resizable:no; status:no; title:no";
+                    window.showModalDialog('../Forms/SetMyHome.aspx?url=' + url, null, DLG_SETMYHOME);
+                }
+
+
+                function ShowSimpleHelp(url) {
+                    var DLG_POPUP = "scrollbar= yes, height=600, Width=800, resizable=yes, status=no, titlebar=no";
+                    if (url.indexOf("?") > 0) {
+                        url += "&";
+                    } else {
+                        url += "?";
+                    }
+                    window.open(url, null, DLG_POPUP);
+                }
+
+                function ViewCompleted() {
+                    var url = "../Maintain/ReportSpool.aspx?simple=1&runningJobs=0&batchJobs=2";
+                    window.open(url, "Reports", "status=1, toolbar=0, height=650px, width=1000px, resizable=1, scrollbars=yes");
+                }
+
+                function PopupWindow2(url) {
+                    var DLG_POPUP = "dialogLeft:0; dialogTop: 0; edge: sunken; scroll: yes; center:yes; dialogHeight:750; dialogWidth:1028; help:no; resizable:yes; status:no; title:no";
+                    if (url.indexOf("?") > 0) {
+                        url += "&";
+                    } else {
+                        url += "?";
+                    }
+                    url += "frameset=1";
+                    window.showModalDialog(url, null, DLG_POPUP);
+                }
+
+                var gLastPopup = parseInt(Math.random() * 10);
+
+                function PopupWindow(url, noToolbar, name) {
+                    var win = null;
+
+                    if (name == null)
+                        name = "";
+                    else
+                        name = name.replace(' ', "");
+
+                    if (win == null) {
+                        if (name == null || name.length == 0) name = "popup" + (gLastPopup++ % 10);
+                        var params;
+                        if (noToolbar) {
+                            params = "fullscreen=no, titlebar=no, location=no, menubar=no, toolbar=no, resizable=yes, scrollbars=yes, status=yes, titlebar=yes";
+                        } else {
+                            params = null;
+                        }
+                        win = window.open(url, name, params);
+                    }
+                    return win;
+                }
+
+                function setRole(val, form) {
+                    var url = window.location.href;
+                    url = url.replace("#", "");
+                    var i = url.indexOf("&");
+                    if (i != -1) {
+                        url = url.substr(0, i);
+                    }
+                    var pars = SoapBuildInputParam("SelectedRole", val);
+                    pars += SoapBuildInputParam("URL", url);
+                    var res = SoapInvokeService(WS_PUBLIC, "AssignSelectedRole", pars);
+                    if (res == -1) {
+                        location.href = "../Main/Home.aspx";
+                    } else {
+                        location.reload();
+                    }
+                }
+            </script>
+        </div>
+    </div>
+    <div id='wrapper' class='center'>
+        <section>
+            <div id='bodyarea'>
+
+
+                <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+                <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+                <script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
+                <body onload="Init()">
+                <form name="frmMain" method="post" action="./CommonSearch.aspx?mode=OWNER" id="frmMain"
+                      autocomplete="on" onsubmit="return frmMainSubmit(&#39;Search&#39;)">
+                    <div>
+                        <input type="hidden" name="ScriptManager1_TSM" id="ScriptManager1_TSM" value=""/>
+                        <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value=""/>
+                        <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value=""/>
+                        <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
+                               value="/wEPDwUKMTMyMjI2NDUyNA8UKwACZGcWAmYPZBYEAgcPZBYEAgEPDxYCHgdWaXNpYmxlaGQWAmYPZBYCZg9kFgQCAQ9kFgICAQ9kFgICAQ8QZGQWAGQCAw9kFgJmD2QWAmYPPCsADgIAFCsAAmQXAQUIUGFnZVNpemUCCgEWAhYLDwICFCsAAjwrAAUBBAUDSlVSPCsABQEEBQROQU1FZGUUKwAACyl5VGVsZXJpay5XZWIuVUkuR3JpZENoaWxkTG9hZE1vZGUsIFRlbGVyaWsuV2ViLlVJLCBWZXJzaW9uPTIwMTMuMS40MDMuNDUsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49MTIxZmFlNzgxNjViYTNkNAE8KwAHAAspdFRlbGVyaWsuV2ViLlVJLkdyaWRFZGl0TW9kZSwgVGVsZXJpay5XZWIuVUksIFZlcnNpb249MjAxMy4xLjQwMy40NSwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj0xMjFmYWU3ODE2NWJhM2Q0AWRkZGRmZAIDDw8WAh8AaGRkAggPFCsAAw8WAh4XRW5hYmxlQWpheFNraW5SZW5kZXJpbmdoZGRkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUVUmFkV2luZG93X05hdmlnYXRlVXJsZPJBbg2igfcZEwJmYEkDVS7KbNS/3qqKh6JPP72Jmjg="/>
+                    </div>
+
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        var theForm = document.forms['frmMain'];
+                        if (!theForm) {
+                            theForm = document.frmMain;
+                        }
+
+                        function __doPostBack(eventTarget, eventArgument) {
+                            if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+                                theForm.__EVENTTARGET.value = eventTarget;
+                                theForm.__EVENTARGUMENT.value = eventArgument;
+                                theForm.submit();
+                            }
+                        }
+
+                        //]]>
+                    </script>
+
+
+                    <script src="/ManateeFL/WebResource.axd?d=bqOQt4VDdh_09MA19btqOz3U10eB2G7JQTUF7XZx_rzkPn1fcWd8k9WR5HMO_K2dbSNaDp2ADwvbTkGnX3GcobYWWdrHesGVM-wcEq_AmUM1&amp;t=635792847765829480"
+                            type="text/javascript"></script>
+
+                    <script language="javascript">
+                        var mode = "OWNER";
+                    </script>
+                    <link class='Telerik_stylesheet' type='text/css' rel='stylesheet'
+                          href='/ManateeFL/WebResource.axd?d=ZpQJ39cCfPIf2Q8iiXUcZW0ktL9WEEwvvYggR0Nk8zLExloBim96zxhQE36TDKbMNLSczoGt3yHlZhxXEi3Q8HutMNifhKez16Yym_tZAgxI7gp1mHYZpMAKpt9-ZgEhskyjW1uFyO3xkuA4g5MxnQ2&amp;t=635107117860000000'></link>
+                    <link class='Telerik_stylesheet' type='text/css' rel='stylesheet'
+                          href='/ManateeFL/WebResource.axd?d=pCClWf4YSAZzfo1kdHUlt_6jmsiwFQ_xjViqLnhHBefFJH3sN2I9o4ARqtMsuqQGHGUwkm_CbaJuffkDhRFu8Fb8_scGBz8kzFikAdJ6nWww4J3t05WEnBu84-3N82tuwWZJI1SJi1eWIBOrtFWaBxuMgh7YzfZXxJ10LZxIeNc1&amp;t=635107117860000000'></link>
+                    <script src="/ManateeFL/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ScriptManager1_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d4.1.50731.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3af8fb2a65-e23a-483b-b20e-6db6ef539a22%3aea597d4b%3ab25378d2%3bTelerik.Web.UI%2c+Version%3d2013.1.403.45%2c+Culture%3dneutral%2c+PublicKeyToken%3d121fae78165ba3d4%3aen-US%3a66639117-cae4-4d6c-a3d7-81eea986263a%3a16e4e7cd%3af7645509%3a24ee1bba%3a874f8ea2%3a19620875%3af46195d3%3a490a9d4e"
+                            type="text/javascript"></script>
+                    <div>
+
+                        <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="953F17FC"/>
+                        <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION"
+                               value="/wEdAAufw7k4RoTZkVzkDMyBugkIimrMKsvipVqgAm6eeFqW4HJKYAFO6I0fqTxQsc4lhuw/VBgahKiSYWm0TH20tWytmzXzYHIa1dmXlvkbftBdgwslnNmVQBKtcUYebedL4DIIE4uP8nfiSzXQ9yZdaHxE13z69BI9GFFQ52nNWBw1jGE7wbUKBFGxkg1vsxgrWVeJ/gVz0FNuJTGXAWFWdI3aBWrIxCGTmNcpF4dAhdp4efMZVwICOg1MeSi+sAZMeSvLXoxHZvcR3B4El48hmsr8"/>
+                    </div>
+
+                    <style type="text/css">
+                        div.infoBox {
+                            width: 800px;
+                            margin-right: 15px;
+                            vertical-align: top;
+                        }
+
+                        #ContentTemplateZone, #NavigateUrlZone {
+                            height: 600px;
+                        }
+
+                        .contText, .contButton {
+                            margin: 0;
+                            padding: 0 0 10px 5px;
+                            font-size: 12px;
+                        }
+
+                        .RadWindow_Black .contText {
+                            color: #fff;
+                        }
+                    </style>
+
+
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'frmMain', [], [], [], 90, '');
+                        //]]>
+                    </script>
+
+                    <input name="PageNum" type="hidden" id="PageNum"/>
+                    <input type="hidden" id="SortBy" name="SortBy" value="PARID">
+                    <input type="hidden" id="SortDir" name="SortDir" value=" asc">
+                    <input type="hidden" id="PageSize" name="PageSize" value="25">
+                    <input name="hdAction" type="hidden" id="hdAction"/>
+                    <input name="hdIndex" type="hidden" id="hdIndex"/>
+                    <input type="hidden" id="sIndex" name="sIndex" value="-1">
+                    <input type="hidden" id="hdListType" name="hdListType" name="hdListType" value="PA">
+                    <input name="hdJur" type="hidden" id="hdJur"/>
+                    <input name="hdSelectAllChecked" type="hidden" id="hdSelectAllChecked"/>
+
+
+                    <table align="center">
+                        <tr>
+                            <td>
+                                <div class='contentpanel'>
+                                    <div>
+
+                                        <table align="center" width="855" cellpadding="0" cellspacing="0" border="0">
+                                            <tr height="2">
+                                                <td width="100%"></td>
+                                            </tr>
+                                            <tr height="2">
+                                                <td width="100%"></td>
+                                            </tr>
+                                            <script type="text/javascript" language="javascript">
+                                                var search_Params = new Array("inpOwner");
+                                            </script>
+                                            <tr>
+                                                <td>
+                                                    <table width="100%" border="0">
+                                                        <tr>
+                                                            <td width="26%" valign="top">
+                                                                <table width="100%" cellpadding="0" cellspacing="0"
+                                                                       border="0">
+                                                                    <tr>
+                                                                        <td class="SearchText">
+                                                                            Search by
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="SearchText">
+                                                                            Owner Name Search
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                            <td rowspan="1" valign="middle">
+                                                            </td>
+                                                            <td rowspan="1" valign="middle">
+                                                                <table cellpadding="2" cellspacing="2" width="100%"
+                                                                       border="0">
+                                                                    <tr>
+                                                                        <td class="IndexLink" width="10%" nowrap>
+                                                                            Owner Name
+                                                                            <font color='red'>*</font>
+
+                                                                        </td>
+                                                                        <td>
+                                                                            <input type="text" class="Input"
+                                                                                   id="inpOwner" name="inpOwner"
+                                                                                   size="50" maxLength="50"
+                                                                                   value=""
+                                                                                   onkeypress="clearAction(this)">
+                                                                        </td>
+                                                                        <td class="IndexLink" align="left" width="*">
+
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td class="IndexLink" colspan="3">
+                                                                            Type in: LastName FirstName
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+
+                                            <tr class="BannerTabsT" height="2">
+                                                <td></td>
+                                            </tr>
+                                            <tr id="optionsRowElement">
+                                                <td>
+                                                    <table width="100%" border="0">
+                                                        <tr valign="middle">
+                                                            <td class="SearchText" valign="middle" width="100"
+                                                                style="FONT-SIZE: 14px;">
+                                                                Options
+                                                            </td>
+                                                            <td class="IndexLink" align="right" width="50" nowrap>Sort
+                                                                by:
+                                                            </td>
+                                                            <td class="IndexLink">
+                                                                <select style="height:21px; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:11px"
+                                                                        id="selSortBy" name="selSortBy"
+                                                                        onchange="changeOrder(this)">
+                                                                    <option value=PARID selected>Parcel ID</option>
+                                                                    <option value=OWNER>Owner Name</option>
+                                                                    <option value=FULLADD>Parcel Address</option>
+                                                                    <option value=ROLL>Roll</option>
+                                                                </select>&nbsp;
+                                                                <select style="height:21px; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:11px"
+                                                                        id="selSortDir" name="selSortDir"
+                                                                        onchange="changeDir(this)">
+                                                                    <option value=" asc">Ascending</option>
+                                                                    <option value=" desc">Descending</option>
+                                                                </select>
+                                                            </td>
+                                                            <td class="IndexLink" nowrap>
+
+                                                                Results/page:
+                                                                <select style="height:21px; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:11px"
+                                                                        id="selPageSize" name="selPageSize">
+                                                                    <option value=15>15</option>
+                                                                    <option value=25>25</option>
+                                                                    <option value=50>50</option>
+                                                                    <option value=100>100</option>
+                                                                </select>
+
+                                                            </td>
+                                                            <td class="IndexLink" align="right">
+                                                                <input name="searchOptions$hdBeta" type="hidden"
+                                                                       id="searchOptions_hdBeta"/>
+
+
+                                                                <button type="submit" id="btSearch" name="btSearch"
+                                                                        class="Btn BtnBlue" onclick="submitPage()"
+                                                                        title="Search" style="clear:both; ">Search
+                                                                </button>
+
+
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr class="BannerTabsT" height="2">
+                                                            <td colspan="5"></td>
+                                                        </tr>
+
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                            <script>
+                                                function submitPage() {
+
+                                                    var _hdSelectAllChecked = document.getElementById("hdSelectAllChecked");
+                                                    if (_hdSelectAllChecked) {
+                                                        _hdSelectAllChecked.value = "false";
+                                                    }
+
+                                                    //CLT-19155 Not needed, as the click event is firing now..
+                                                    //document.forms[0].submit();
+                                                }
+                                            </script>
+
+
+                                            <tr>
+                                                <td>
+                                                    <table width="100%">
+                                                        <tr>
+
+                                                            <td width="60%" align="center">
+                                                                <font face="Arial, Helvetica" size="2"
+                                                                      color="red">*</font>
+                                                                <font face="Arial, Helvetica" size="2" color="black">&nbsp;required</font>
+                                                            </td>
+
+                                                            <td class="IndexLink" align="right">
+                                                                <b>Data Current as of&nbsp;</b>18/Sep/2019
+                                                            </td>
+
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+
+                                            <tr height="2">
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <table align="center" width="100%" border="0">
+                                            <tr>
+                                                <td valign="top" width="82%">
+                                                    <table border="0" cellspacing=0 cellpadding=0 align="center"
+                                                           width="100%">
+                                                        <tr>
+                                                            <td align="center">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center">
+
+                                                                <table id="Table1" cellspacing="1" cellpadding="1"
+                                                                       width="450" border="0">
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div id="phInstructions_dvInstr"><!DOCTYPE
+                                                                                html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                                                                                "http://www.w3.org/TR/html4/strict.dtd">
+                                                                                <html>
+                                                                                <head>
+                                                                                    <meta content="text/html; charset=ISO-8859-1"
+                                                                                          http-equiv="content-type">
+                                                                                    <title>owner.htm</title>
+
+                                                                                </head>
+                                                                                <body>
+                                                                                <table style="text-align: left; width: 613px; height: 50px;"
+                                                                                       border="0" cellpadding="2"
+                                                                                       cellspacing="2">
+                                                                                    <tbody>
+                                                                                    <tr style="font-family: Arial;">
+                                                                                        <td style="background-color: #004c8c;">
+                                                                                            <medium style="color: white;">
+                                                                                                <medium style="font-weight: bold;">
+                                                                                                    Instructions
+                                                                                                </medium>
+                                                                                            </medium>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr style="font-family: Arial;">
+                                                                                        <td>
+                                                                                            <medium>
+                                                                                                <medium>Type in the full
+                                                                                                    name or a
+                                                                                                    part of the full
+                                                                                                    name into the Name
+                                                                                                    box. Use the * as a
+                                                                                                    wild card to
+                                                                                                    match any string of
+                                                                                                    characters, for
+                                                                                                    example:
+                                                                                                </medium>
+                                                                                            </medium>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <br>
+                                                                                <table style="text-align: left; width: 613px; height: 50px;"
+                                                                                       border="0" cellpadding="2"
+                                                                                       cellspacing="2">
+                                                                                    <tbody>
+                                                                                    <tr style="font-family: Arial;">
+                                                                                        <td style="background-color: #004c8c;">
+                                                                                            <medium style="color: white;">
+                                                                                                <medium style="font-weight: bold;">
+                                                                                                    Export to Excel
+                                                                                                </medium>
+                                                                                            </medium>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr style="font-family: Arial;">
+                                                                                        <td>
+                                                                                            <medium>
+                                                                                                <medium>
+                                                                                                    To export search
+                                                                                                    results into a CSV
+                                                                                                    format that can be
+                                                                                                    used with Excel
+                                                                                                    please follow these
+                                                                                                    steps:
+                                                                                                    <br><br>
+                                                                                                    - Perform a desired
+                                                                                                    search.
+                                                                                                    <br>
+                                                                                                    - Select the records
+                                                                                                    that are to be
+                                                                                                    exported either one
+                                                                                                    by one or by using
+                                                                                                    the options in the
+                                                                                                    <br><b>Selection
+                                                                                                    Manager.</b>
+                                                                                                    <br>
+                                                                                                    - Select either the
+                                                                                                    <b>Property
+                                                                                                        Attributes
+                                                                                                        Export</b> or
+                                                                                                    the <b>Mailing
+                                                                                                    List</b> report and
+                                                                                                    hit <b>GO</b>
+                                                                                                    <br>
+                                                                                                    - Click Open when
+                                                                                                    prompted.
+                                                                                                    <br>
+                                                                                                </medium>
+                                                                                            </medium>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <br>
+                                                                                <table style="text-align: left; width: 614px; height: 50px;"
+                                                                                       border="0" cellpadding="2"
+                                                                                       cellspacing="2">
+                                                                                    <tbody>
+                                                                                    <tr>
+                                                                                        <td style="font-family: Arial; background-color: #004c8c;">
+                                                                                            <medium style="color: white;">
+                                                                                                <medium><span
+                                                                                                        style="font-weight: bold;">Enter</span>
+                                                                                                </medium>
+                                                                                            </medium>
+                                                                                        </td>
+                                                                                        <td style="font-family: Arial; background-color: #004c8c;">
+                                                                                            <medium>
+                                                                                                <medium><span
+                                                                                                        style="font-weight: bold; color: white;">Returns</span>
+                                                                                                </medium>
+                                                                                            </medium>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td style="font-family: Arial;">
+                                                                                            <medium>
+                                                                                                <medium>Grant<br>
+                                                                                                    B*ow<br>
+                                                                                                    B*o*ski
+                                                                                                </medium>
+                                                                                            </medium>
+                                                                                        </td>
+                                                                                        <td style="font-family: Arial;">
+                                                                                            <medium>
+                                                                                                <medium>Grant<br>
+                                                                                                    Brown, Barrow,
+                                                                                                    Below, etc.<br>
+                                                                                                    Bojarski, Bronowski,
+                                                                                                    Bukowski, etc.
+                                                                                                </medium>
+                                                                                            </medium>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                                <br>
+                                                                                </body>
+                                                                                </html>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div id="phInstructions_dvExampl"></div>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                </table>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="center">
+
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <!-- td width="10">&nbsp;</td -->
+                                                <!-- td valign="top" height="400" rowspan=2 -->
+
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div id="RadWindow_NavigateUrl" style="display:none;">
+                        <!-- 2013.1.403.45 -->
+                        <div id="RadWindow_NavigateUrl_C" style="display:none;">
+
+                        </div>
+                        <input id="RadWindow_NavigateUrl_ClientState" name="RadWindow_NavigateUrl_ClientState"
+                               type="hidden"/>
+                    </div>
+
+                    <input name="mode" type="hidden" id="mode" value="OWNER"/>
+                    <input name="mask" type="hidden" id="mask"/>
+                    <input name="param1" type="hidden" id="param1"/>
+                    <input name="searchimmediate" type="hidden" id="searchimmediate"/>
+
+
+                    <script type="text/javascript">
+                        //<![CDATA[
+                        Sys.Application.add_init(function () {
+                            $create(Telerik.Web.UI.RadWindow, {
+                                "_dockMode": false,
+                                "clientStateFieldID": "RadWindow_NavigateUrl_ClientState",
+                                "formID": "frmMain",
+                                "height": "700px",
+                                "iconUrl": "",
+                                "initialBehaviors": 16,
+                                "minimizeIconUrl": "",
+                                "modal": true,
+                                "name": "RadWindow_NavigateUrl",
+                                "restrictionZoneID": "NavigateUrlZone",
+                                "skin": "Default",
+                                "width": "700px"
+                            }, null, null, $get("RadWindow_NavigateUrl"));
+                        });
+                        //]]>
+                    </script>
+                </form>
+                </body>
+                <script type="text/javascript" src="../script/common.js"></script>
+                <script type="text/javascript" src="../script/soap.js"></script>
+                <script type="text/javascript" src="../Search/Script/Search.js"></script>
+                <script type="text/javascript" src="../Script/ParidControl.js"></script>
+                <script type="text/javascript" src="../script/xapi.js"></script>
+
+
+                <script type="text/javascript">
+                    //var url = "../Search/AppendToList.aspx?frameset=1&ListType=" + ListType + "&sIndex=" + sIndex + "&fromMap=" + fromMap;
+
+                    var searchType = "OWNER";
+                    var useParcelMask = "false";
+                    var Labels = "";
+                    var Fields = "";
+                    var MinLengths = "";
+                    var Required = "Owner";
+                    var siteMultijur = "False";
+                    var siteJur = "51";
+                    var siteYear = "2019";
+                    var useParcelMask = "false";
+                    var jur = "51";
+
+                    function openWinNavigateUrl(url) {
+                        //debugger;
+                        //var url = "../Search/AppendToList.aspx?frameset=1&ListType=" + ListType + "&sIndex=" + sIndex + "&fromMap=" + fromMap;
+                        var _window = $find("RadWindow_NavigateUrl");
+                        _window.setUrl(url);
+                        _window.show();
+                    }
+
+                    function MaskParcel(val, clear) {
+                        if (useParcelMask == "true") {
+                            if (val == null) {
+                                if (filterJur != null) {
+                                    jur = filterJur.value;
+                                }
+                            } else {
+                                jur = val;
+                            }
+                            if (jur == null || jur.length == 0) {
+                                jur = "*";
+                            }
+                            var parid = document.getElementById("inpParid");
+                            //parid.value = parid.value.replace(/\*/gi, "");
+                            var ctrl = parid.ParidControl;
+                            if (ctrl == null) {
+                                if (searchType == "PERSPROP") {
+                                    new Tyler.Controls.ParidControl(parid, jur, true, null, 'PPACCT');
+                                } else {
+                                    new Tyler.Controls.ParidControl(parid, jur, true, null);
+                                }
+                            } else {
+                                ctrl.setJur(jur);
+                            }
+                            ctrl = parid.ParidControl;
+                            parid.value = ctrl.getValue();
+                            //alert(parid.value);
+                            parid.style.display = "none";
+                            for (var i = 0; 1 == 1; i++) {
+                                var item = document.getElementById("inpParId_seg" + i.toString());
+                                if (item == null) {
+                                    break;
+                                } else {
+                                    if (clear == true) {
+                                        item.value = "";
+                                    } else {
+                                        //item.onchange = null;
+                                        if (jur == "*") {
+                                            item.value = replaceAll(item.value, "*", "");
+                                        }
+                                        if (i == 0) {
+                                            try {
+                                                seg.focus();
+                                            } catch (e) {
+                                            }
+                                        }
+                                    }
+                                }
+                                item.display = "block";
+                            }
+                        }
+                    }
+
+                    function CheckExpired() {
+                        var ctl = document.frmMain.selSortBy;
+                        if (ctl == null) return;
+                        if (ctl.value == "") {
+                            alert("This page has expired and will be reloaded automatically");
+                            window.location.href = window.location.href + "&r=1";
+                        }
+                    }
+
+                    //CheckExpired();
+                    function Init(frm) {
+                        //    debugger;
+
+
+                        if (useParcelMask != null && useParcelMask == "true") {
+                            var filterJurCtl = document.getElementById("inpJur");
+                            if (filterJurCtl == null) {
+                                filterJurCtl = document.getElementById("searchFilter_LovCtrl_txtItems");
+                                if (filterJurCtl != null) {
+                                    jur = filterJurCtl.value;
+                                    if (jur == null || jur == "-1" || jur == "") {
+                                        jur = "*";
+                                    }
+                                }
+                            } else {
+                                jur = filterJurCtl.value;
+                                if (jur == null || jur == "-1" || jur == "") {
+                                    jur = "*";
+                                }
+                            }
+                            var clear = false;
+                            var hdJur = document.getElementById("hdJur");
+                            if (hdJur != null && hdJur.value != jur) {
+                                hdJur.value = jur;
+                                clear = true;
+                                var mask = document.getElementById("mask");
+                                if (mask != null) {
+                                    mask.value = "";
+                                }
+                            }
+
+                            MaskParcel(jur, clear);
+                        }
+                        if (frmMain.selSortBy && frmMain.SortBy) {
+                            frmMain.selSortBy.value = frmMain.SortBy.value;
+                        }
+                        if (frmMain.selSortDir && frmMain.SortDir) {
+                            frmMain.selSortDir.value = frmMain.SortDir.value;
+                        }
+                        if (frmMain.PageSize && frmMain.selPageSize) {
+                            frmMain.selPageSize.value = frmMain.PageSize.value;
+                        }
+                        if (searchType == "BLQ") {
+                            var parid = document.getElementById("inpParid");
+                            var block = document.getElementById("inpBlock");
+                            var paridVal = (parid) ? trim(parid.value) : "";
+                            if (paridVal.length > 0) {
+                                setblqFields(parid)
+                            } else {
+                                setblqFields(block)
+                            }
+                        }
+
+                        var mask = document.getElementById("mask");
+                        if (mask.value.length > 0 && useParcelMask == "true") {
+                            var parts = mask.value.split('|');
+                            var i = 0;
+                            var seg = document.getElementById("inpParid_seg" + i);
+                            while (seg != null) {
+                                seg.value = parts[i];
+                                i++;
+                                seg = document.getElementById("inpParid_seg" + i);
+                            }
+                        }
+                        var flds = document.frmMain;
+                        var len = 0;
+                        if (flds != null) {
+                            len = flds.length;
+                            if (len != null) {
+                                for (var i = 0; i < len; i++) {
+                                    var el = flds[i];
+                                    if (el.type == "text" && el.disabled == false) {
+                                        try {
+                                            el.focus();
+                                        } catch (e) {
+                                        }
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        setTimeout(setFocus, 300);
+                        try {
+                            //will only close the drop-down on initial load...
+
+                            //setTimeout(searchFilter_LovCtrlCloseJurList, 1);
+                        } catch (e) {
+                        }
+                    }
+
+                    function setFocus() {
+                        if (Required.length > 0) {
+                            var field = document.getElementById('inp' + Required);
+                            if (field != null) {
+                                try {
+                                    field.focus();
+                                } catch (e) {
+                                }
+                            }
+                        }
+                    }
+
+                    function changeOrder(el) {
+                        document.frmMain.SortBy.value = el.value;
+                    }
+
+                    function changeDir(el) {
+                        document.frmMain.SortDir.value = el.value;
+                    }
+
+                    function startSearch() {
+                        document.frmMain.PageNum.value = 1;
+                        return frmMainSubmit('Search');
+                    }
+
+                    function frmMainSubmit(action) {
+                        //setTimeout(searchFilter_LovCtrlCloseJurList, 1);//close drop-down on submit
+                        document.frmMain.hdAction.value = action;
+                        document.frmMain.action = "CommonSearch.aspx?mode=" + document.frmMain.mode.value;
+                        if ((document.frmMain.mode.value == "PARID" || document.frmMain.mode.value == "REALPROP" || document.frmMain.mode.value == "PERSPROP") && useParcelMask == "true") {
+                            var parid = document.getElementById("inpParid");
+                            var ctl = parid.ParidControl;
+                            if (ctl == null) return;
+                            var value = ctl.getValue();
+                            parid.value = value;
+                            var mask = "";
+                            var i = 0;
+                            var seg = document.getElementById("inpParid_seg" + i);
+                            while (seg != null) {
+                                if (i > 0) {
+                                    mask += "|";
+                                }
+                                mask += seg.value;
+                                i++;
+                                seg = document.getElementById("inpParid_seg" + i);
+                            }
+                            document.getElementById("mask").value = mask;
+                        }
+                        return Validate();
+                    }
+
+                    function Validate() {
+                        //try
+                        //{
+                        //    var filterValue = searchFilter_LovCtrl_IsValid();
+                        //    if (filterValue == false)
+                        //    {
+                        //        return false;
+                        //    }
+                        //}
+                        //catch(e){};
+                        var doc = document.all;
+                        var Lbls = new Array(Labels.split(","));
+                        var Flds = new Array(Fields.split(","));
+                        var MLns = new Array(MinLengths.split(","));
+                        if (Flds.length == 0) {
+                            return true;
+                        }
+                        for (var i = 0; i < Lbls.length; i++) {
+                            var Name = Lbls[i];
+                            var Field = Flds[i];
+                            var form = document.frmMain;
+                            var el = null;
+                            for (var j = 0; j < form.length; j++) {
+                                var obj = form[j];
+                                if (obj != null && obj.name == Field) {
+                                    el = obj;
+                                    break;
+                                }
+                            }
+                            if (el == null) {
+                                return true;
+                            }
+                            var mLen = MLns[i];
+                            var val = el.value;
+                            if (doc != null) {
+                                val = trim(val);
+                            }
+                            if (val.length > 0 && doc != null) {
+//			var ch = "";
+                                ch = val.substr(val.length - 1, 1);
+                                val = replaceAll(val, "%", "");
+                                val = replaceAll(val, "*", "");
+//			if (ch == "*")
+//			{
+//				val += ch;
+//				++mLen;
+//			}
+                                el.value = val;
+                            }
+                            if (val.length < mLen) {
+                                alert("Please enter at least " + mLen + " symbol(s) in " + Name);
+                                if (el != null) {
+                                    el.focus();
+                                }
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+
+                    function validateOwner() {
+                        var doc = document.all;
+                        var Lbls = new Array(Labels.split(","));
+                        var Flds = new Array(Fields.split(","));
+                        var MLns = new Array(MinLengths.split(","));
+                        if (Flds.length == 0) {
+                            return true;
+                        }
+                        for (var i = 0; i < Lbls.length; i++) {
+                            var Name = Lbls[i];
+                            var Field = Flds[i];
+                            var form = document.frmMain;
+                            var el = null;
+                            for (var j = 0; j < form.length; j++) {
+                                var obj = form[j];
+                                if (obj != null && obj.name == Field) {
+                                    el = obj;
+                                    break;
+                                }
+                            }
+                            if (el == null) {
+                                return true;
+                            }
+                            var mLen = MLns[i];
+                            var val = el.value;
+                            if (doc != null) {
+                                val = trim(val);
+                                var ch = "";
+                            }
+                            if (val.length > 0 && doc != null) {
+                                ch = val.substr(val.length - 1, 1);
+                                val = replaceAll(val, "%", "");
+                                val = replaceAll(val, "*", "");
+                                if (ch == "*") {
+                                    val += ch;
+                                    ++mLen;
+                                }
+                                el.value = val;
+                            }
+                            if (val.length < mLen) {
+                                alert("Please enter at least 2 symbols in " + Name);
+                                document.frmMain.inpOwner.focus();
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+
+                    function clearAction(el) {
+                        //alert("test");
+                        frmMain.hdAction.value = "";
+                        return true;
+                    }
+
+
+                </script>
+            </div>
+        </section>
+    </div>
+</div>
+<footer>
+    <div id='footerarea'>
+        <div id='footercontent'>
+            <div id="dvFooter" style="clear:both; text-align:center;"><p style="text-align: center;">Data Copyright
+                iasWorld Public Access&nbsp;<br/>
+                [<a href="http://www.manateepao.com/dnn/terms">Terms of Use</a>] [<a
+                        href="http://www.manateepao.com/dnn/Privacy" target="_blank">Privacy Statement</a>]<br/>
+                Site Design Copyright 2016 Tyler Technologies. All Rights Reserved. </p>
+
+                <script>
+                    (function (i, s, o, g, r, a, m) {
+                        i['GoogleAnalyticsObject'] = r;
+                        i[r] = i[r] || function () {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                        a = s.createElement(o),
+                            m = s.getElementsByTagName(o)[0];
+                        a.async = 1;
+                        a.src = g;
+                        m.parentNode.insertBefore(a, m)
+                    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+                    ga('create', 'UA-49285134-10', 'manateepao.com');
+                    ga('send', 'pageview');
+
+                </script>
+            </div>
+            <script>
+                var tmpLate = "../images/cur_template";
+
+                function getTmpLate(par) {
+                    return tmpLate + par;
+                }
+            </script>
+
+
+        </div>
+    </div>
+</footer>
+</body>
+<script language=JavaScript>window.setTimeout("window.location.replace('../main/home.aspx')", 215990000);</script>
+</html>
