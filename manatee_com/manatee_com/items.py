@@ -90,5 +90,34 @@ class AppraiserItem(scrapy.Item):
     case_type = DEFAULT
     case_status = DEFAULT
     file_date = DEFAULT
+    file_type = DEFAULT
+    date_filed = DEFAULT
     dob = DEFAULT
     tags = DEFAULT
+    decedent_name = DEFAULT
+    decedent_mailing_address = DEFAULT
+    decedent_physical_address = DEFAULT
+    personal_rep_name = DEFAULT
+    personal_rep_address = DEFAULT
+    docket_date = DEFAULT
+    docket_description = DEFAULT
+
+    par_id = scrapy.Field(
+        output_processor=Compose(
+            strip_strings, remove_emptys, remove_duplicates, Join(' '), Remove('PARID: ')),
+    )
+    primary_address = DEFAULT
+    dor_use_code = DEFAULT
+    dor_description = DEFAULT
+    owner = DEFAULT
+    owner_address = DEFAULT
+    owner_city = DEFAULT
+    owner_state = DEFAULT
+    owner_zip = DEFAULT
+    just_land_value = DEFAULT
+    just_improvement_value = DEFAULT
+    total_just_value = DEFAULT
+    account_number = DEFAULT
+    sales_date = DEFAULT
+    sales_amount = DEFAULT
+    year_built = DEFAULT

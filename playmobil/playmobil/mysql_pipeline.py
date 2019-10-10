@@ -40,7 +40,7 @@ class MySQLStorePipeline(object):
         self.data.append(tuple((
             item.get('URL', '').encode('utf-8'),
             item.get('Name', '').encode('utf-8'),
-            item.get('Image', '').encode('utf-8'),
-            item.get('Price', '').encode('utf-8'),
+            item.get('Image', ''),
+            item.get('Price', ''),
         )))
         return item

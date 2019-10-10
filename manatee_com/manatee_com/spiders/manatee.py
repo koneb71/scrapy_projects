@@ -31,9 +31,10 @@ class ManateeSpider(CrawlSpider):
     start_urls = ['https://www.manateepao.com/ManateeFL/search/commonsearch.aspx?mode=owner']
 
     def __init__(self, *a, **kw):
-        # super().__init__(*a, **kw)
-        fd = "C:\Users\NeiellCare\Documents\workspace\scrapers\manatee_com\manatee 01-01-2016 to 08-31-2019 - revised.xlsx"
-        data = pd.read_excel(fd)
+        super().__init__(*a, **kw)
+        fd = "/Users/neiellcare/Documents/scrapy_projects/manatee_com/decent_names2.csv"
+        data = pd.read_csv(fd)
+        # data = pd.read_excel(fd)
         data['case_file_date'] = data['case_file_date'].astype(str)
         self.data = data.fillna('').to_dict('records')
 
@@ -59,7 +60,7 @@ class ManateeSpider(CrawlSpider):
     def start_search(self, response):
         requests = []
 
-        for item in self.data[276:]:
+        for item in self.data[9:]:
             # print(item)
             requests.append(
                 FormRequest(
@@ -122,11 +123,11 @@ class ManateeSpider(CrawlSpider):
             #
             #     return item.load_item()
             # else:
-            for link in links:
-                link = str(link.get()).split('../')[1].replace("')", '')
-                requests.append(
-                    Request(base_url+link, callback=self.parse_profile, meta=response.meta, dont_filter=True)
-                )
+            # for link in links[:2]:
+            link = str(links[0].get()).split('../')[1].replace("')", '')
+            requests.append(
+                Request(base_url+link, callback=self.parse_profile, meta=response.meta, dont_filter=True)
+            )
         elif response.meta['search'] == 'first':
             print('second: ' + str(response.meta['data']['second']))
             requests.append(
@@ -169,8 +170,8 @@ class ManateeSpider(CrawlSpider):
             item = ItemLoader(ManateeComItem(), response)
 
             item.add_value('case_number', meta['case_number'])
-            # item.add_value('party_name', meta['party_name'])
-            item.add_value('party_name', meta['complete party_name_from_probate'])
+            item.add_value('party_name', meta['party_name'])
+            # item.add_value('party_name', meta['complete party_name_from_probate'])
             item.add_value('party_type', meta['party_type'])
             item.add_value('case_type', meta['case_type'])
             item.add_value('case_status', meta['case_status'])
@@ -197,8 +198,8 @@ class ManateeSpider(CrawlSpider):
         item.add_xpath('owner_state', "//table[@id='Owners']//*[contains(text(), 'State')]/following-sibling::td[1]/text()")
         item.add_xpath('owner_zip', "//table[@id='Owners']//*[contains(text(), 'Zip Code')]/following-sibling::td[1]/text()")
         item.add_value('case_number', meta['case_number'])
-        # item.add_value('party_name', meta['party_name'])
-        item.add_value('party_name', meta['complete party_name_from_probate'])
+        item.add_value('party_name', meta['party_name'])
+        # item.add_value('party_name', meta['complete party_name_from_probate'])
         item.add_value('party_type', meta['party_type'])
         item.add_value('case_type', meta['case_type'])
         item.add_value('case_status', meta['case_status'])
