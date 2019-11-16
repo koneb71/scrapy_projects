@@ -27,7 +27,7 @@ class SlowSpider(CrawlSpider):
     def start_requests(self):
         requests = []
         c = self.db.cursor()
-        c.execute("""Select url from w_scrape_urls where store = %s""", (self.store,))
+        c.execute("""Select url from w_scrape_urls where store = %s and active = 1""", (self.store,))
         sites = c.fetchall()
         for site in sites:
             requests.append(Request(site['url'], self.parse_item))

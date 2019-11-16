@@ -36,7 +36,7 @@ class AsdaComSpider(CrawlSpider):
 
         requests = []
         c = self.db.cursor()
-        c.execute("""Select url from w_scrape_urls where store = %s""", (self.store,))
+        c.execute("""Select url from w_scrape_urls where store = %s and active = 1""", (self.store,))
         sites = c.fetchall()
         for site in sites:
             requests.append(Request(site['url'], callback=self.parse_pages))
@@ -52,23 +52,22 @@ class AsdaComSpider(CrawlSpider):
             last_page = int(last_page)
 
             for num in range(0, last_page + 1):
-                requests.append(Request("%s?No=%s" % (response.url, num * 60)))
+                requests.append(Request("%s?No=%s" % (response.url, num * 60), callback=self.parse_items))
         return requests
 
-    def parse(self, response):
+    def parse_items(self, response):
         lists = []
-        for res in response.xpath("//*[@class='product-list']//div[contains(@class, 'productListing')]"):
+        for res in response.xpath("//*[@class=' co-product-list']//div[contains(@class, 'co-product')]"):
             item = ItemLoader(AsdaItem(), res)
 
             item.add_value('Master_URL', response.url)
             item.add_value('URL',
-                           self.base_url + ''.join(res.xpath(".//*[@class='product-content']/span/a/@href").get()))
-            item.add_xpath('Name', ".//*[@class='product-content']/span//text()")
-            item.add_xpath('Image', ".//*[@class='imgContainer']/a/img/@src")
-            item.add_xpath('Price', ".//*[@class='price']/span[last()]/text()")
-            item.add_xpath('Offer', ".//*[@class='offer-2for3']//text()")
-            item.add_xpath('Offer', ".//*[@class='ping-offer-finalValue']//text()")
-            item.add_xpath('Stock', ".//*[contains(@class, 'fav-test-item')]/text()")
+                           self.base_url + ''.join(res.xpath(".//*[@class='co-item__col1']/a/@href").get()))
+            item.add_xpath('Name', ".//*[@class='co-product__title']//text()")
+            item.add_xpath('Image', ".//*[@class='co-item__col1']/a/img/@src")
+            item.add_xpath('Price', ".//*[@class='co-product__price']/text()")
+            item.add_xpath('Offer', ".//*[@class='link-save-banner-large__meat-sticker']//text()")
+            item.add_xpath('Stock', ".//*[@class='fco-product-quantity__add-butt-cont']/text()")
             item.add_value('Data_Large', res.xpath('.').get())
             item.add_value('Dtime', datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
