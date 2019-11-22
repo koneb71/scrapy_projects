@@ -67,7 +67,7 @@ class FastSpider(CrawlSpider):
             item.add_xpath("Name", ".//*[@class='product-name']//text()")
             item.add_value("Image", self.image_url.format(str(res.xpath("./@data-itemid").get()), quote(
                 res.xpath(".//*[@class='product-name']//a/@title").get(), safe='')))
-            item.add_xpath("Price", ".//*[@class='price-sales ']/text()")
+            item.add_xpath("Price", ".//*[contains(@class,'price-sales')]/text()")
 
             items.append(item.load_item())
         return items
